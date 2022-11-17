@@ -1,0 +1,54 @@
+<body>
+  <!-- nav bar copied from bootstrap-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!--nav bar-->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">INFR3210</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> <!--button, hamburger?, for responsive page-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!--automatically adjusting margins of navbar-->
+                <!--ms-auto in version 5-->
+
+        <li class="nav-item">
+        <% if(title == "Home Page"){%>
+          <a class="nav-link active" aria-current="page" href="/home">
+        <%} else { %>
+          <a class="nav-link" aria-current="page" href="/home">
+        <% } %>
+          <i class="fa-solid fa-house-user"></i> Home</a>
+        </li> <!--only keep "active" for the homepage", it seems it's the "highlight" though--> 
+
+        <li class="nav-item">
+        <% if(title == "about"){%>
+          <a class="nav-link active" aria-current="page" href="/about">
+        <%} else { %>
+          <a class="nav-link" aria-current="page" href="/about">
+        <% } %>
+          <i class="fa-solid fa-lg fa-user-gear"></i> About Me</a>
+          <!--fontawesome icon-->
+          <!-- fa-lg to make it large or xtimes number(?)--><!-- on the site other variations-->
+        </li>
+
+
+        <li class="nav-item">
+        <% if(title == "projects"){%>
+          <a class="nav-link active" aria-current="page" href="/projects">Projects</a>
+          <%} else { %>
+          <a class="nav-link" aria-current="page" href="/projects">Projects</a>
+                        <!-- aria-current shouldnt matter for now apparently-->
+          <% } %>
+        </li>
+
+        <li class="nav-item">
+        <% if(title == "contact me"){%>
+          <a class="nav-link active" aria-current="page" href="/contactme">Contact Me</a>
+          <%} else { %>
+          <a class="nav-link" aria-current="page" href="/contactme">Contact Me</a>
+          <% } %>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>

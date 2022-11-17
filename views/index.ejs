@@ -1,0 +1,17 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<!--jumbotron copied from bootstrap 4.0-->
+<main>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to the <%= title %> page!</h1>
+      <h1 class="display-4"><%= title %> へようこそ</h1>
+      <p class="lead">This is an unnecessary paragraph im leaving here for example purposes</p>
+    </div>
+  </div>
+</main>
+
+<!-- as you can see this one is called here, in order-->
+<%- include partials/bottom_nav.ejs %>
+<%- include partials/footer.ejs %>
