@@ -5,26 +5,41 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 //3rd party packages and stuff, we can see them in package.json
 
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+//configure mongoDB
+let mongoose = require('mongoose');
+let DB = require('./db');
+
+//point mongoose to DataBase URI
+mongoose.connect(DB.URI);
+let mongoDB = mongoose.connection; //not a function
+mongoDB.on('error',console.error.bind(console,'Connection Error')); //checks for a connection error
+mongoDB.once('open', ()=>{
+  console.log('MongoDB connection successful. We are in B)'); //when it opens, confirmation message on console
+})
+
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
 //routers folder
+
+let booksRouter = require('../routes/books');
 
 //creating application
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs'); //oh look, its ejs, and it's in folder "/views"
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
 
 app.use('/', indexRouter);  // localhost:3000/
 app.use('/users', usersRouter); //localhost:3000/users
+app.use('/book-list',booksRouter); //so it's straightforward
 
 
 // catch 404 and forward to error handler

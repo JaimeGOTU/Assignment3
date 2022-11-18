@@ -33,4 +33,12 @@ router.get('/contactme', function(req, res, next) {
     });
 });
 
+/*
+router.get('/book-list', function(req, res, next) {
+  res.render('index', { 
+    title: 'book list',
+    });
+});
+*/
+
 module.exports = router;
