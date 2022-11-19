@@ -21,7 +21,7 @@ let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 //routers folder
 
-let booksRouter = require('../routes/books');
+let booksRouter = require('../routes/book');
 
 //creating application
 let app = express();
@@ -34,8 +34,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);  // localhost:3000/
 app.use('/users', usersRouter); //localhost:3000/users

@@ -6,10 +6,11 @@ let bookModel = mongoose.Schema({
     author: String,
     published: String,
     description: String,
-    price: Number
+    price: String,
 },
 {
-    collection: "Learning"
+    collection: "VideoCopy"
+    //the actual name of the database
 }
 );
 

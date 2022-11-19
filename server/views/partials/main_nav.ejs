@@ -20,6 +20,14 @@
         </li> <!--only keep "active" for the homepage", it seems it's the "highlight" though--> 
 
         <li class="nav-item">
+        <% if(title == "Books"){%>
+          <a class="nav-link active" aria-current="page" href="/book-list">Books</a>
+          <%} else { %>
+          <a class="nav-link" aria-current="page" href="/book-list">Books</a>
+          <% } %>
+        </li>
+
+        <li class="nav-item">
         <% if(title == "about"){%>
           <a class="nav-link active" aria-current="page" href="/about">
         <%} else { %>
